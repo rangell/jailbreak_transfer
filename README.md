@@ -1,6 +1,6 @@
 # Jailbreak Transferability Analysis
 
-Code for replicating results in [Jailbreak Transferability Emerges from Shared Representations]()
+Code for replicating results in [Jailbreak Transferability Emerges from Shared Representations]().
 
 ### Setup
 
@@ -19,7 +19,7 @@ export OPENAI_API_KEY=[...]
 
 ### Downloading the data
 
-Our training and results data can be downloaded [here]().
+Our training and results data can be downloaded [here](https://huggingface.co/datasets/rangell/jailbreak_transfer/tree/main).
 
 ### Sampling and judging generations
 
@@ -43,4 +43,4 @@ Our observational results can be replicated using the jupyter notebook `notebook
 
 ### Distillation
 
-We provide code for performing distillation in the `distillations/` subdirectory. The distillation code is adapted from [tatsu-lab/stanford_alpaca](https://github.com/tatsu-lab/stanford_alpaca)
+We provide code for performing distillation in the `distillations/` subdirectory. The distillation code is adapted from [tatsu-lab/stanford_alpaca](https://github.com/tatsu-lab/stanford_alpaca).
