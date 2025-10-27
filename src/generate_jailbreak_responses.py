@@ -49,7 +49,11 @@ if __name__ == "__main__":
         default=1000,
         help="Number of concurrent judge threads.",
     )
-    parser.add_argument("--output-dir", help="Path to output directory.", required=True)
+    parser.add_argument(
+        "--output-dir",
+        default="results/strong_reject_responses/",
+        help="Path to output directory.",
+    )
     args = parser.parse_args()
 
     print("args: ", vars(args))
@@ -103,7 +107,7 @@ if __name__ == "__main__":
         responses = example["response"]
         return [strongreject_rubric(prompt, r)["score"] for r in responses]
 
-    judge_scores = Parallel(n_jobs=args.n_judge_jobs, prefer="threads")(
+    judge_scores = Parallel(n_jobs=args.n_judge_jobs, prefer="threads", verbose=10)(
         delayed(judge_fn)(example) for example in jailbreaks_dataset
     )
 
@@ -111,5 +115,5 @@ if __name__ == "__main__":
 
     # dump socred responses
     jailbreaks_dataset.to_json(
-        f"{args.output_dir}/{args.target_model}-scored_responses.json"
+        f"{args.output_dir}/eval_all_responses-{args.target_model}.json"
     )
